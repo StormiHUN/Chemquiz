@@ -1,0 +1,50 @@
+Víz | H H O
+Szén-dioxid | C O O
+Kén-dioxid | S O O
+Ammónia | N H H H
+Szén-monoxid | C O
+Kálium-permanganát | K Mn O O O
+Sósav | H Cl
+Nátrium-hidroxid | Na O H
+Kalcium-karbonát | Ca C O O O
+Szén-monoxid | C O
+Alumínium-oxid | Al Al O O O
+Kálium-klorid | K Cl
+Dinitrogén-monoxid | N N O O
+Kálium-hidroxid | K O H
+Kalcium-oxid | Ca O O
+Nátrium-karbonát | Na Na C O O O
+Vas-oxid | Fe Fe O O O
+Nitrogén-oxid | N O
+Kalcium-hidroxid | Ca O H
+Kén-trioxid | S O O O
+Foszfor-pentoxid | P P O O O O
+Hidrogén-peroxid | H H O O
+Nátrium-bikarbonát | Na H C O O O
+Ammónium-klorid | N H H H Cl
+Kalcium-szulfát | Ca S O O O
+Mangán-dioxid | Mn O O O
+Szkandium-oxid | S c S c O O O
+Fluor-dioxid | F F O O
+Alumínium-hidroxid | Al O O O H H H
+Kén-hexafluorid | S F F F F F F
+Foszfor-triklorid | P P P Cl Cl Cl
+Nátrium-hidrogén-karbonát | Na H H C O O O
+Kálium-perklorát | K Cl O O O O
+Kalcium-fluorid | Ca F F
+Vas-oxid | Fe O
+Bórsav | H H H B H O O O O
+Magnézium-oxid | Mg O O
+Hidrogén-peroxid | H H O O
+Foszfor(III) oxid | P P P P O O
+Alumínium-szulfát | Al Al O O O S S S
+Vas(III) oxid | Fe Fe O O O
+Kálium-karbonát | K K C O O O
+Hidrogén-klorid | H Cl
+Kalcium-klorid | Ca Cl Cl
+Nátrium-karbonát | Na Na C O O O
+Foszfor(V) oxid | P P P P O O O O
+Vas(II) oxid | Fe Fe O
+Szén-diszulfid | C S S
+Foszfor-trioxid | P P P O O O
+Kálium-szulfát | K K S O O O

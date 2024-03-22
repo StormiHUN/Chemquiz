@@ -1,0 +1,50 @@
+Water | H H O
+Carbon dioxide | C O O
+Sulfur dioxide | S O O
+Ammonia | N H H H
+Carbon monoxide | C O
+Potassium permanganate | K Mn O O O
+Hydrochloric acid | H Cl
+Sodium hydroxide | Na O H
+Calcium carbonate | Ca C O O O
+Carbon monoxide | C O
+Aluminum oxide | Al Al O O O
+Potassium chloride | K Cl
+Nitric oxide | N N O O
+Potassium hydroxide | K O H
+Calcium oxide | Ca O O
+Sodium carbonate | Na Na C O O O
+Iron oxide | Fe Fe O O O
+Nitrous oxide | N O
+Calcium hydroxide | Ca O H
+Sulfur trioxide | S O O O
+Phosphorus pentoxide | P P O O O O
+Hydrogen peroxide | H H O O
+Sodium bicarbonate | Na H C O O O
+Ammonium chloride | N H H H Cl
+Calcium sulfate | Ca S O O O
+Manganese dioxide | Mn O O O
+Scandium oxide | S c S c O O O
+Fluorine dioxide | F F O O
+Aluminum hydroxide | Al O O O H H H
+Sulfur hexafluoride | S F F F F F F
+Phosphorus trichloride | P P P Cl Cl Cl
+Sodium hydrogen carbonate | Na H H C O O O
+Potassium perchlorate | K Cl O O O O
+Calcium fluoride | Ca F F
+Iron oxide | Fe O
+Boric acid | H H H B H O O O O
+Magnesium oxide | Mg O O
+Hydrogen peroxide | H H O O
+Phosphorus(III) oxide | P P P P O O
+Aluminum sulfate | Al Al O O O S S S
+Iron(III) oxide | Fe Fe O O O
+Potassium carbonate | K K C O O O
+Hydrochloric acid | H Cl
+Calcium chloride | Ca Cl Cl
+Sodium carbonate | Na Na C O O O
+Phosphorus(V) oxide | P P P P O O O O
+Iron(II) oxide | Fe Fe O
+Carbon disulfide | C S S
+Phosphorus trioxide | P P P O O O
+Potassium sulfate | K K S O O O

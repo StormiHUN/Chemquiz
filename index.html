@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f1217;
+            font-family: "Inconsolata", sans-serif;
+            padding: 20px;
+        }
+
+        p:hover{
+            background-color: #0f1f1f;
+        }
+
+        #center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 3vh;
+        }
+
+        #target {
+            margin-top: 3vh;
+            background-color: #0f1217;
+            border: 0.4vh solid white;
+            color: white;
+            border-radius: 1vh;
+            padding: 10px;
+            font-size: 3vh;
+            text-align: center;
+        }
+
+        #given {
+            background-color: #0f1217;
+            border: 0.4vh solid white;
+            color: white;
+            border-radius: 1vh;
+            width: 80vw;
+            max-width: 400px;
+            font-size: 3vh;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+        }
+
+        #choices {
+            background-color: #0f1217;
+            border: 0.4vh solid white;
+            color: white;
+            border-radius: 1vh;
+            gap: 1vw;
+            font-size: 3vh;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .element {
+            background-color: #0f1217;
+            border: 0.4vh solid white;
+            color: white;
+            text-align: center;
+            border-radius: 1vh;
+            width: 4rem;
+            height: 4rem;
+            font-size: 3vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+        }
+
+        @media screen and (max-width: 600px) {
+            #given {
+                width: 90vw;
+            }
+
+            .element {
+                width: 3rem;
+                height: 3rem;
+                font-size: 2vh;
+            }
+        }
+
+    </style>
+</head>
+
+<script>
+
+    let target = new Map()
+    let given = new Map()
+    let sol = ""
+
+    let quess = []
+    let all = "H, He, Li, Be, B, C, N, O, F, Ne, Na, Mg, Al, Si, P, S, Cl, Ar, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ga, Ge, As, Se, Br, Kr, Rb, Sr, Y, Zr, Nb, Mo, Tc, Ru, Rh, Pd, Ag, Cd, In, Sn, Sb, Te, I, Xe, Cs, Ba, La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Os, Ir, Pt, Au, Hg, Tl, Pb, Bi, Po, At, Rn, Fr, Ra, Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og"
+
+    function szarazegész(){
+        
+        let rand = hu.split(",")[Math.floor(Math.random()*hu.split(", ").length)]
+        sol = rand.split(" | ")[0]
+        for(let i of rand.split(" | ")[1].split(" ")){
+            if(target.has(i)){
+                target.set(i,target.get(i)+1)
+            }else{
+                target.set(i,1)
+                quess.push(i)
+            }
+        }
+        start = quess.length
+        for(let i = start; i < 10-start; i++){
+            rand = all.split(", ")[Math.floor(Math.random()*all.split(", ").length)]
+            while(quess.includes(rand)){
+                rand = all.split(", ")[Math.floor(Math.random()*all.split(", ").length)]
+            }
+            quess.push(rand)
+        }
+        for(let i of quess){
+            const l = document.createElement("p")
+            l.classList.add("element")
+            l.onclick = click
+            l.innerText = i 
+            document.getElementById("choices").appendChild(l)
+        }
+        document.getElementById("target").innerText = sol
+    }
+
+    function draw(){
+        document.getElementById("given").innerHTML = null
+        for(let i of given.keys()){
+            let str = i+""
+            if(given.get(i) < 2){
+                const l = document.createElement("p")
+                l.classList.add("element")
+                l.onclick = remove
+                l.innerText = i 
+                document.getElementById("given").appendChild(l)
+            }else{
+                const l = document.createElement("p")
+                l.classList.add("element")
+                l.onclick = remove
+                l.innerText = i + given.get(i)
+                document.getElementById("given").appendChild(l)
+            }
+        }
+    }
+
+    function click(ev){
+        let el = ev.target.innerText
+        if(given.has(el)){ given.set(el,given.get(el)+1)}
+        else{ given.set(el,1)}
+        draw()
+        for(let i of given){
+            if(target.has(i)){
+                if(target.get(i) == given.get(i)){
+                    continue
+                }else{
+                    return
+                }
+            }else{
+                return
+            }
+        }
+    }
+
+    function remove(ev){
+        let el = ev.target.innerText.replace(/\d+/g,"")
+        given.set(el,given.get(el)-1)
+        if(given.get(el) < 1) given.delete(el)
+        draw()
+    }
+
+    let en = "Water | H H O,Carbon dioxide | C O O,Sulfur dioxide | S O O,Ammonia | N H H H,Carbon monoxide | C O,Potassium permanganate | K Mn O O O,Hydrochloric acid | H Cl,Sodium hydroxide | Na O H,Calcium carbonate | Ca C O O O,Carbon monoxide | C O,Aluminum oxide | Al Al O O O,Potassium chloride | K Cl,Nitric oxide | N N O O,Potassium hydroxide | K O H,Calcium oxide | Ca O O,Sodium carbonate | Na Na C O O O,Iron oxide | Fe Fe O O O,Nitrous oxide | N O,Calcium hydroxide | Ca O H,Sulfur trioxide | S O O O,Phosphorus pentoxide | P P O O O O,Hydrogen peroxide | H H O O,Sodium bicarbonate | Na H C O O O,Ammonium chloride | N H H H Cl,Calcium sulfate | Ca S O O O,Manganese dioxide | Mn O O O,Scandium oxide | S c S c O O O,Fluorine dioxide | F F O O,Aluminum hydroxide | Al O O O H H H,Sulfur hexafluoride | S F F F F F F,Phosphorus trichloride | P P P Cl Cl Cl,Sodium hydrogen carbonate | Na H H C O O O,Potassium perchlorate | K Cl O O O O,Calcium fluoride | Ca F F,Iron oxide | Fe O,Boric acid | H H H B H O O O O,Magnesium oxide | M g O O,Hydrogen peroxide | H H O O,Phosphorus(III) oxide | P P P P O O,Aluminum sulfate | Al Al O O O S S S,Iron(III) oxide | Fe Fe O O O,Potassium carbonate | K K C O O O,Hydrochloric acid | H Cl,Calcium chloride | Ca Cl Cl,Sodium carbonate | Na Na C O O O,Phosphorus(V) oxide | P P P P O O O O,Iron(II) oxide | Fe Fe O,Carbon disulfide | C S S,Phosphorus trioxide | P P P O OO O,Potassium sulfate | K K S O O O"
+    let hu = "Víz | H H O, Szén-dioxid | C O O, Kén-dioxid | S O O, Ammónia | N H H H, Szén-monoxid | C O, Kálium-permanganát | K Mn O O O, Sósav | H Cl, Nátrium-hidroxid | Na O H, Kalcium-karbonát | Ca C O O O, Szén-monoxid | C O, Alumínium-oxid | Al Al O O O, Kálium-klorid | K Cl, Dinitrogén-monoxid | N N O O, Kálium-hidroxid | K O H, Kalcium-oxid | Ca O O, Nátrium-karbonát | Na Na C O O O, Vas-oxid | Fe Fe O O O, Nitrogén-oxid | N O, Kalcium-hidroxid | Ca O H, Kén-trioxid | S O O O, Foszfor-pentoxid | P P O O O O, Hidrogén-peroxid | H H O O, Nátrium-bikarbonát | Na H C O O O, Ammónium-klorid | N H H H Cl, Kalcium-szulfát | Ca S O O O, Mangán-dioxid | Mn O O O, Szkandium-oxid | S c S c O O O, Fluor-dioxid | F F O O, Alumínium-hidroxid | Al O O O H H H, Kén-hexafluorid | S F F F F F F, Foszfor-triklorid | P P P Cl Cl Cl, Nátrium-hidrogén-karbonát | Na H H C O O O, Kálium-perklorát | K Cl O O O O, Kalcium-fluorid | Ca F F, Vas-oxid | Fe O, Bórsav | H H H B H O O O O, Magnézium-oxid | M g O O, Hidrogén-peroxid | H H O O, Foszfor(III) oxid | P P P P O O, Alumínium-szulfát | Al Al O O O S S S, Vas(III) oxid | Fe Fe O O O, Kálium-karbonát | K K C O O O, Hidrogén-klorid | H Cl, Kalcium-klorid | Ca Cl Cl, Nátrium-karbonát | Na Na C O O O, Foszfor(V) oxid | P P P P O O O O, Vas(II) oxid | Fe Fe O, Szén-diszulfid | C S S, Foszfor-trioxid | P P P O O,Kálium-szulfát | K K S O O O"
+
+
+</script>
+
+<body onload="szarazegész()">
+    <div id="center">
+        <p id="target">
+            Walter
+        </p>
+        <div id="given">
+        </div>
+        <div id="choices">
+        </div>
+    </div>
+
+</body>
+</html>
